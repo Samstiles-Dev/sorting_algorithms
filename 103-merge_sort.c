@@ -3,26 +3,6 @@
 #include <stdio.h>
 
 /**
- * merge_sort - initiate merge sort
- * @array: array to be sorted
- * @size: size of the array
- */
-void merge_sort(int *array, size_t size)
-{
-	int *temp;
-
-	if (!array || size < 2)
-		return;
-
-	temp = malloc(sizeof(*temp) * size);
-	if (!temp)
-		return;
-
-	_merge_sort(array, temp, size);
-	free(temp);
-}
-
-/**
  * _merge_sort - start merge sort
  * @array: array to be sorted
  * @temp: temporary array for holding sorted elements
@@ -60,4 +40,22 @@ void _merge_sort(int *array, int *temp, size_t size)
 	print_array(array, size);
 }
 
+/**
+ * merge_sort - start merge sort
+ * @array: array to be sorted
+ * @size: size of the array
+ */
+void merge_sort(int *array, size_t size)
+{
+	int *temp;
 
+	if (!array || size < 2)
+		return;
+
+	temp = malloc(sizeof(*temp) * size);
+	if (!temp)
+		return;
+
+	_merge_sort(array, temp, size);
+	free(temp);
+}
